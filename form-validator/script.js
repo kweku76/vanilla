@@ -32,7 +32,7 @@ function checkEmail(input) {
 // Check required fields
 function checkRequired(inputArr) {
   inputArr.forEach(function (input) {
-    if (input.value.trim() === '') {
+    if (input.value.trim() === '') { // if input is equal to nothing show error - the trim() method removes any white space
       showError(input, `${getFieldName(input)} is required`);
     } else {
       showSuccess(input);
@@ -72,7 +72,7 @@ function getFieldName(input) {
 // Event listeners
 form.addEventListener('submit', function (e) {
   e.preventDefault();
-
+  //passing in an array of inputs is cleaner than seperate fields
   checkRequired([username, email, password, password2]);
   checkLength(username, 3, 15);
   checkLength(password, 6, 25);
