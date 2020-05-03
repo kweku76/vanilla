@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: #242333;
+  background: rgb(36, 35, 51);
+  background: radial-gradient(circle, rgba(36, 35, 51, 1) 0%, rgba(0, 0, 0, 1) 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -34,7 +35,7 @@ body {
 }
 
 .container {
-  perspective: 1000px;
+  perspective: 400px;
   margin-bottom: 30px;
 }
 
@@ -49,11 +50,11 @@ body {
 }
 
 .seat.selected {
-  background-color: #6feaf6;
+  background-color: #FF9800;
 }
 
 .seat.occupied {
-  background-color: #fff;
+  background-color: #821c5b;
 }
 
 .seat:nth-of-type(2) {
@@ -100,12 +101,13 @@ body {
 }
 
 .screen {
-  background-color: #fff;
+
   height: 70px;
   width: 100%;
   margin: 15px 0;
   transform: rotateX(-45deg);
-  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  background: rgb(37, 208, 217);
+  background: linear-gradient(180deg, rgba(37, 208, 217, 1) 0%, rgba(63, 94, 251, 1) 100%);
 }
 
 p.text {
