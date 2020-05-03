@@ -21,7 +21,7 @@ function showSuccess(input) {
 
 // Check email is valid
 function checkEmail(input) {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; //regular expression for valid email
   if (re.test(input.value.trim())) {
     showSuccess(input);
   } else {
@@ -42,12 +42,12 @@ function checkRequired(inputArr) {
 
 // Check input length
 function checkLength(input, min, max) {
-  if (input.value.length < min) {
+  if (input.value.length < min) { // if the vaue of input is less than min value
     showError(
       input,
       `${getFieldName(input)} must be at least ${min} characters`
     );
-  } else if (input.value.length > max) {
+  } else if (input.value.length > max) { // if input value is greater than max
     showError(
       input,
       `${getFieldName(input)} must be less than ${max} characters`
@@ -58,8 +58,8 @@ function checkLength(input, min, max) {
 }
 
 // Check passwords match
-function checkPasswordsMatch(input1, input2) {
-  if (input1.value !== input2.value) {
+function checkPasswordsMatch(input1, input2) { //checks to make sure input1 and input2 are equal
+  if (input1.value !== input2.value) { //if input1 does not equal input2 show error
     showError(input2, 'Passwords do not match');
   }
 }
@@ -67,7 +67,7 @@ function checkPasswordsMatch(input1, input2) {
 // Get fieldname
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-}
+} //this makes the first letter Capital , using slice(1)
 
 // Event listeners
 form.addEventListener('submit', function (e) {
