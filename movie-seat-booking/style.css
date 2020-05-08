@@ -50,11 +50,11 @@ body {
 }
 
 .seat.selected {
-  background-color: #FF9800;
+  background-color: #2ac57b;
 }
 
 .seat.occupied {
-  background-color: #821c5b;
+  background-color: #0b88ea;
 }
 
 .seat:nth-of-type(2) {
@@ -115,7 +115,15 @@ p.text {
 }
 
 p.text span {
-  color: #6feaf6;
+  color: #2ac57b;
+  font-size: 30px;
+  padding: 4px;
+  font-weight: bold;
+}
+
+p.dollar span {
+  color: #3c7f85;
+  font-size: 50px;
 }
 
 h1 {
