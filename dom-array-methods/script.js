@@ -1,7 +1,7 @@
 const main = document.getElementById('main');
 const addUserBtn = document.getElementById('add-user');
 const doubleBtn = document.getElementById('double');
-const showMill = document.getElementById('show-millionaires');
+const showMillBtn = document.getElementById('show-millionaires');
 const sortBtn = document.getElementById('sort');
 const calcWealthBtn = document.getElementById('calculate-wealth');
 
@@ -24,7 +24,7 @@ async function getRandomUser() { //using fetch and async await
 
   addData(newUser);
 }
-//DOUBLE USERS MONEY using Map method
+//DOUBLE USERS MONEY using Map() method
 function doubleMoney() { // map will take original array and mutate it any way we want
   data = data.map(user => { //data variable is reassigned because its Let variable
     return {
@@ -36,9 +36,15 @@ function doubleMoney() { // map will take original array and mutate it any way w
   updateDOM(); //clear the main div and replaces based on new event
 }
 
-//SORT USERS BY RICHEST using SORT method
+//SORT USERS BY RICHEST using SORT() method
 function sortByRichest() {
   data.sort((a, b) => b.money - a.money);
+  updateDOM();
+}
+
+//FILTER ONLY MILLIONAIRES - using HOF Filter() method
+function showBigWilly() {
+  data = data.filter(user => user.money > 1000000); //only show users who have more than a mill
   updateDOM();
 }
 
@@ -71,3 +77,5 @@ function updateDOM(provideData = data) {
 addUserBtn.addEventListener('click', getRandomUser); //when addUserBtn is clicked it will generate a new random user by getRandomUser function
 doubleBtn.addEventListener('click', doubleMoney); // when doubleBtn is clicked it will multiply the currency of current users
 sortBtn.addEventListener('click', sortByRichest); //when clicked will sort users by richest
+showMillBtn.addEventListener('click', showBigWilly); //when clicked will only show millionaires
+showMillBtn.addEventListener('click', showBigWilly);
