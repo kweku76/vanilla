@@ -48,6 +48,14 @@ function showBigWilly() {
   updateDOM();
 }
 
+// CALCULATE TOTAL WEALTH using reduce()
+function calcwealth() {
+  const wealth = data.reduce((acc, user) => (acc += user.money), 0);
+  const wealthEl = document.createElement('div');
+  wealthEl.innerHTML = `<h3></h3>`
+
+}
+
 // Add new obj to data array
 function addData(obj) {
   data.push(obj); //using the push method to put something at the end of array
@@ -78,4 +86,4 @@ addUserBtn.addEventListener('click', getRandomUser); //when addUserBtn is clicke
 doubleBtn.addEventListener('click', doubleMoney); // when doubleBtn is clicked it will multiply the currency of current users
 sortBtn.addEventListener('click', sortByRichest); //when clicked will sort users by richest
 showMillBtn.addEventListener('click', showBigWilly); //when clicked will only show millionaires
-showMillBtn.addEventListener('click', showBigWilly);
+calcWealthBtn.addEventListener('click', calcWealth); //adds dislayed users money to create a total
