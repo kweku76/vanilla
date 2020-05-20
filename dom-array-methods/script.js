@@ -49,10 +49,22 @@ function showBigWilly() {
 }
 
 // CALCULATE TOTAL WEALTH using reduce()
-function calcwealth() {
-  const wealth = data.reduce((acc, user) => (acc += user.money), 0);
+function calcWealth() {
+
+  // Check if welathEl already exists in DOM
+  document.getElementById('wealthEl') ?
+    document.getElementById('wealthEl').remove() :
+    null;
+
   const wealthEl = document.createElement('div');
-  wealthEl.innerHTML = `<h3></h3>`
+  // Also set id attribute to WealthEl
+  wealthEl.setAttribute('id', 'wealthEl');
+  wealthEl.innerHTML = `<h3>Total Wealth: <strong>$
+  {formatMoney(
+wealth
+)}</strong></h3>`;
+
+  main.appendChild(wealthEl);
 
 }
 
