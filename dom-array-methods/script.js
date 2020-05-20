@@ -50,7 +50,7 @@ function showBigWilly() {
 
 // CALCULATE TOTAL WEALTH using reduce()
 function calcWealth() {
-
+  const wealth = data.reduce((acc, user) => (acc += user.money), 0);
   // Check if welathEl already exists in DOM
   document.getElementById('wealthEl') ?
     document.getElementById('wealthEl').remove() :
@@ -59,11 +59,9 @@ function calcWealth() {
   const wealthEl = document.createElement('div');
   // Also set id attribute to WealthEl
   wealthEl.setAttribute('id', 'wealthEl');
-  wealthEl.innerHTML = `<h3>Total Wealth: <strong>$
-  {formatMoney(
-wealth
-)}</strong></h3>`;
-
+  wealthEl.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(
+    wealth
+  )}</strong></h3>`;
   main.appendChild(wealthEl);
 
 }
@@ -87,10 +85,11 @@ function updateDOM(provideData = data) {
     main.appendChild(element); // using formatMoney function to change numbers into currency.
   });
 
-  //FORMAT NUMBER AS MONEY - https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-string
-  function formatMoney(number) {
-    return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'); //changes numbers to currency
-  }
+
+}
+//FORMAT NUMBER AS MONEY - https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-string
+function formatMoney(number) {
+  return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'); //changes numbers to currency
 }
 
 //EVENT LISTENERS
