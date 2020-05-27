@@ -28,9 +28,14 @@ button {
   border: 1px solid #dedede;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  font-size: 14px;
-  padding: 8px 10px;
+  font-size: 16px;
+  padding: 10px 14px;
   margin: 0;
+  color: #03979b;
+}
+
+button {
+  font-size: 28px;
 }
 
 input[type='text'] {
