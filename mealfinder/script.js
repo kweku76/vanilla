@@ -1,4 +1,5 @@
-const search = document.getElementById('search'),
+//DOM search elements for div html ( id)
+const search = document.getElementById('search'), //instead of using const again we just use comma
   submit = document.getElementById('submit'),
   random = document.getElementById('random'),
   mealsEl = document.getElementById('meals'),
@@ -6,17 +7,17 @@ const search = document.getElementById('search'),
   single_mealEl = document.getElementById('single-meal');
 
 // Search meal and fetch from API
-function searchMeal(e) {
-  e.preventDefault();
+function searchMeal(e) { //this will fetch the meals from the mealdb database , loop through and display in DOM
+  e.preventDefault(); //prevents default behaviour
 
   // Clear single meal
-  single_mealEl.innerHTML = '';
+  single_mealEl.innerHTML = ''; //this clears the display of single meals
 
   // Get search term
-  const term = search.value;
+  const term = search.value; //this gives us the value, not the element
 
   // Check for empty
-  if (term.trim()) {
+  if (term.trim()) { //making sure something is submited in search field
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
       .then(res => res.json())
       .then(data => {
@@ -106,7 +107,7 @@ function addMealToDOM(meal) {
   `;
 }
 
-// Event listeners
+// Event listeners - submit action and random meal action
 submit.addEventListener('submit', searchMeal);
 random.addEventListener('click', getRandomMeal);
 
