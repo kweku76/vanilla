@@ -1,3 +1,4 @@
+//themealdb.com/api.php
 //DOM search elements for div html ( id)
 const search = document.getElementById('search'), //instead of using const again we just use comma
   submit = document.getElementById('submit'),
@@ -17,14 +18,14 @@ function searchMeal(e) { //this will fetch the meals from the mealdb database , 
   const term = search.value; //this gives us the value, not the element
 
   // Check for empty
-  if (term.trim()) { //making sure something is submited in search field
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
-      .then(res => res.json())
-      .then(data => {
+  if (term.trim()) { //making sure something is submited in search field .trim() to remove white space
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`) //we make a fetch get request to db
+      .then(res => res.json()) //we catch a promise with .then which gives a response (res) which we have to format to json
+      .then(data => { //this returns another promise which gives us the data
         console.log(data);
-        resultHeading.innerHTML = `<h2>Search results for '${term}':</h2>`;
+        resultHeading.innerHTML = `<h2>Search results for '${term}':</h2>`; //displays search results for term
 
-        if (data.meals === null) {
+        if (data.meals === null) { // if meals equals null display message below
           resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
         } else {
           mealsEl.innerHTML = data.meals
@@ -44,7 +45,7 @@ function searchMeal(e) { //this will fetch the meals from the mealdb database , 
     // Clear search text
     search.value = '';
   } else {
-    alert('Please enter a search term');
+    alert('Please enter a search term'); // this alert displays if empty search is submitted
   }
 }
 
