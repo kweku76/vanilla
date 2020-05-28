@@ -27,7 +27,7 @@ function searchMeal(e) { //this will fetch the meals from the mealdb database , 
 
         if (data.meals === null) { // if meals equals null display message below
           resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
-        } else {
+        } else { //if there are meals, map through list and display the following using map
           mealsEl.innerHTML = data.meals
             .map(
               meal => `
@@ -39,7 +39,7 @@ function searchMeal(e) { //this will fetch the meals from the mealdb database , 
             </div>
           `
             )
-            .join('');
+            .join(''); //this enables the html block to display as a string
         }
       });
     // Clear search text
@@ -51,10 +51,10 @@ function searchMeal(e) { //this will fetch the meals from the mealdb database , 
 
 // Fetch meal by ID
 function getMealById(mealID) {
-  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`) //fetch mealId data
     .then(res => res.json())
     .then(data => {
-      const meal = data.meals[0];
+      const meal = data.meals[0]; // getting the fist value from the data array
 
       addMealToDOM(meal);
     });
@@ -77,21 +77,21 @@ function getRandomMeal() {
 
 // Add meal to DOM
 function addMealToDOM(meal) {
-  const ingredients = [];
+  const ingredients = []; //creating an array called ingredients
 
-  for (let i = 1; i <= 20; i++) {
-    if (meal[`strIngredient${i}`]) {
-      ingredients.push(
+  for (let i = 1; i <= 20; i++) { // we create a for loop that will only display a maximum of 20 ingredients
+    if (meal[`strIngredient${i}`]) { //check for actual ingredients in db
+      ingredients.push( //if there are, display ingredient and measure from db
         `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`
       );
     } else {
-      break;
+      break; //once all ingredients are displayed we break out of the loop
     }
   }
-
+  //displaying the single meal details in DOM
   single_mealEl.innerHTML = `
     <div class="single-meal">
-      <h1>${meal.strMeal}</h1>
+      <h2>${meal.strMeal}</h2>
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
       <div class="single-meal-info">
         ${meal.strCategory ? `<p>${meal.strCategory}</p>` : ''}
@@ -115,14 +115,14 @@ random.addEventListener('click', getRandomMeal);
 mealsEl.addEventListener('click', e => {
   const mealInfo = e.path.find(item => {
     if (item.classList) {
-      return item.classList.contains('meal-info');
+      return item.classList.contains('meal-info'); //check to see if there is a class of 'meal-info'
     } else {
       return false;
     }
   });
 
   if (mealInfo) {
-    const mealID = mealInfo.getAttribute('data-mealid');
+    const mealID = mealInfo.getAttribute('data-mealid'); //
     getMealById(mealID);
   }
 });
