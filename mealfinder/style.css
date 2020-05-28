@@ -14,7 +14,7 @@ h1,
 h2 {
   font-family: 'Lobster', cursive;
   font-weight: 100;
-  text-shadow: 4px 4px 0px #3333335c;
+  text-shadow: 4px 8px 0px #3333335c;
 }
 
 h1 {
@@ -129,14 +129,20 @@ input[type='text'] {
 .single-meal-info {
   margin: 20px;
   padding: 10px;
-  border: 2px #e09850 dashed;
+  border: 2px #ffef7a dashed;
   border-radius: 5px;
+  font-family: 'Lobster', cursive;
+  font-style: italic;
+  color: #ffef7a;
+  font-size: 30px;
+  text-shadow: 4px 4px 0px #3333335c;
 }
 
 .single-meal p {
   margin: o;
   letter-spacing: 0.5px;
   line-height: 1.5;
+
 }
 
 .single-meal ul {
