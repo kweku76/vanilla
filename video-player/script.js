@@ -1,3 +1,4 @@
+// get DOM elements we need
 const video = document.getElementById('video');
 const play = document.getElementById('play');
 const stop = document.getElementById('stop');
@@ -5,16 +6,16 @@ const progress = document.getElementById('progress');
 const timestamp = document.getElementById('timestamp');
 
 // Play & pause video
-function toggleVideoStatus() {
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
+function toggleVideoStatus() { //creating a function to toggle play/pause status
+  if (video.paused) { //if video is paused - using property video.paused
+    video.play(); //show the play icon with play() method
+  } else { //otherwise if video is playing
+    video.pause(); //show pause icon with pause() method
   }
 }
 
 // update play/pause icon
-function updatePlayIcon() {
+function updatePlayIcon() { //function to update visual elements for play/pause
   if (video.paused) {
     play.innerHTML = '<i class="fa fa-play fa-2x"></i>';
   } else {
@@ -47,15 +48,15 @@ function setVideoProgress() {
 }
 
 // Stop video
-function stopVideo() {
-  video.currentTime = 0;
-  video.pause();
+function stopVideo() { //we have to use a trick to stop video as there is no stop method
+  video.currentTime = 0; //when we run stopVideo function we set current time to 0 (start)
+  video.pause(); //then we pause it.. just like stop, right?
 }
 
 // Event listeners
-video.addEventListener('click', toggleVideoStatus);
-video.addEventListener('pause', updatePlayIcon);
-video.addEventListener('play', updatePlayIcon);
+video.addEventListener('click', toggleVideoStatus); //on click run togglevideostatus
+video.addEventListener('pause', updatePlayIcon); //changes play icon to pause icon
+video.addEventListener('play', updatePlayIcon); // changes pause icon to play icon
 video.addEventListener('timeupdate', updateProgress);
 
 play.addEventListener('click', toggleVideoStatus);
