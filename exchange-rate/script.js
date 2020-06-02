@@ -1,3 +1,4 @@
+// get DOM elements we need ( id in html)
 const currencyEl_one = document.getElementById('currency-one');
 const amountEl_one = document.getElementById('amount-one');
 const currencyEl_two = document.getElementById('currency-two');
@@ -12,8 +13,8 @@ function caclulate() {
   const currency_two = currencyEl_two.value;
 
   fetch(`https://api.exchangerate-api.com/v4/latest/${currency_one}`)
-    .then(res => res.json())
-    .then(data => {
+    .then(res => res.json()) //returns a promise with res - we specify format as json
+    .then(data => { //gives us another promise with the data in right format
       // console.log(data);
       const rate = data.rates[currency_two];
 
