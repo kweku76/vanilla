@@ -24,22 +24,22 @@ function updatePlayIcon() { //function to update visual elements for play/pause
 }
 
 // Update progress & timestamp
-function updateProgress() {
+function updateProgress() { //this moves the time dial as percentage from 1% to 100%
   progress.value = (video.currentTime / video.duration) * 100;
 
   // Get minutes
-  let mins = Math.floor(video.currentTime / 60);
-  if (mins < 10) {
-    mins = '0' + String(mins);
+  let mins = Math.floor(video.currentTime / 60); //
+  if (mins < 10) { //if minutes are less than 10..
+    mins = '0' + String(mins); //then mins = 0 plus mins
   }
 
   // Get seconds
   let secs = Math.floor(video.currentTime % 60);
-  if (secs < 10) {
+  if (secs < 10) { //if seconds are less than 10..
     secs = '0' + String(secs);
   }
 
-  timestamp.innerHTML = `${mins}:${secs}`;
+  timestamp.innerHTML = `${mins}:${secs}`; //template string to show seconds and minutes
 }
 
 // Set video time to progress
@@ -57,10 +57,10 @@ function stopVideo() { //we have to use a trick to stop video as there is no sto
 video.addEventListener('click', toggleVideoStatus); //on click run togglevideostatus
 video.addEventListener('pause', updatePlayIcon); //changes play icon to pause icon
 video.addEventListener('play', updatePlayIcon); // changes pause icon to play icon
-video.addEventListener('timeupdate', updateProgress);
+video.addEventListener('timeupdate', updateProgress); //updates time as video plays
 
 play.addEventListener('click', toggleVideoStatus);
 
-stop.addEventListener('click', stopVideo);
+stop.addEventListener('click', stopVideo); //runs stopvideo function
 
 progress.addEventListener('change', setVideoProgress);
