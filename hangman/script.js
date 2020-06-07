@@ -43,7 +43,7 @@ function updateWrongLettersEl() {
   // Display wrong letters
   wrongLettersEl.innerHTML = `
     ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
-    ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+    ${wrongLetters.map(letter => `<span class="wrong_">${letter}</span>`)}
   `;
 
   // Display parts
